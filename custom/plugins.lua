@@ -97,6 +97,14 @@ local plugins = {
       table.insert(M.sources, {name = "crates"})
       return M
     end
+  },
+  {
+    "jwalton512/vim-blade",
+    ft="blade"
+  },
+  {
+    "joerdav/templ.vim",
+    ft="templ"
   }
 }
 

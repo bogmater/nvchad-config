@@ -30,3 +30,39 @@ lspconfig.volar.setup({
   filetypes = { "vue" },
   root_dir = lspconfig.util.root_pattern("package.json", "vue.config.js")
 })
+
+lspconfig.gopls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = lspconfig.util.root_pattern(".git", "go.mod"),
+      flags = {
+         debounce_text_changes = 150,
+      },
+      settings = {
+         gopls = {
+            gofumpt = true,
+            experimentalPostfixCompletions = true,
+            staticcheck = true,
+            usePlaceholders = true,
+         },
+      },
+})
+
+lspconfig.html.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"html", "templ"}
+})
+
+lspconfig.htmx.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"html", "templ"}
+})
+
+lspconfig.tailwindcss.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"templ", "astro", "javascript", "typescript", "react"},
+  init_options = { userLanguages = { templ = "html" } },
+})
