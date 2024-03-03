@@ -10,7 +10,9 @@ local M = {
       require("formatter.filetypes.php").php_cs_fixer
     },
     go = {
-      require("formatter.filetypes.go").gofmt
+      require("formatter.filetypes.go").gofmt,
+      require("formatter.filetypes.go").govet,
+      require("formatter.filetypes.go").golines
     },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace

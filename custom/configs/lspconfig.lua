@@ -51,18 +51,18 @@ lspconfig.gopls.setup({
 lspconfig.html.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {"html", "templ"}
+  filetypes = {"html", "templ", "tpl", "tmpl"}
 })
 
 lspconfig.htmx.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {"html", "templ"}
+  filetypes = {"html", "templ", "tpl", "tmpl"}
 })
 
 lspconfig.tailwindcss.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {"templ", "astro", "javascript", "typescript", "react"},
+  filetypes = {"templ", "astro", "javascript", "typescript", "react", "tpl", "tmpl"},
   init_options = { userLanguages = { templ = "html" } },
 })

@@ -44,7 +44,8 @@ local plugins = {
         "typescript",
         "vue",
         "sql",
-        "json"
+        "json",
+        "go"
       }
     }
   },
@@ -79,9 +80,6 @@ local plugins = {
     end
   },
   {
-    "mfussenegger/nvim-dap",
-  },
-  {
     "saecki/crates.nvim",
     ft = {"rust", "toml"},
     config = function (_, opts)
@@ -91,21 +89,67 @@ local plugins = {
     end,
   },
   {
-    "hrsh7th/nvim-cmp",
-    opts = function ()
-      local M = require "plugins.configs.cmp"
-      table.insert(M.sources, {name = "crates"})
-      return M
-    end
-  },
-  {
     "jwalton512/vim-blade",
     ft="blade"
   },
   {
     "joerdav/templ.vim",
     ft="templ"
-  }
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      lsp = {
+        hover = {
+          enabled = false
+        },
+        signature = {
+          enabled = false
+        }
+      }
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    requires = { -- dependencies
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end
+  },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   init = function()
+  --     require("core.utils").load_mappings("dap")
+  --   end
+  -- },
+  -- {
+  --   "leoluz/nvim-dap-go",
+  --   ft = "go",
+  --   dependencies = "mfussenegger/nvim-dap",
+  --   config = function(_, opts)
+  --     require("dap-go").setup(opts)
+  --     require("core.utils").load_mappings("dap-go")
+  --   end
+  -- },
+--   {
+--     "junegunn/seoul256.vim"
+--   },
 }
 
 return plugins;

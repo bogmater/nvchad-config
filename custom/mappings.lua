@@ -19,20 +19,40 @@ local M = {}
 --     ["<leader>lf"] = {"<cmd> Format<CR>"}
 --   }
 -- }
-M.dap = {
-  n = {
-    ["<leader>db"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
-      "Toggle Breakpoint"
-    },
-    ["<leader>dus"] = {
-      function ()
-        local widgets = require('dap.ui.widgets');
-        local sidebar = widgets.sidebar(widgets.scopes);
-        sidebar.open()
-      end
-    }
-  }
-}
+--
+-- M.dap = {
+--   n = {
+--     ["<leader>db"] = {
+--       "<cmd> DapToggleBreakpoint <CR>",
+--       "Toggle Breakpoint"
+--     },
+--     ["<leader>dus"] = {
+--       function ()
+--         local widgets = require('dap.ui.widgets');
+--         local sidebar = widgets.sidebar(widgets.scopes);
+--         sidebar.open()
+--       end
+--     },
+--     ["<leader>md"] = {"<cmd>NoiceDismiss<CR>"}
+--   }
+-- }
+--
+-- M.dap_go = {
+--   plugin = true,
+--   n = {
+--     ["<leader>dgt"] = {
+--       function()
+--         require('dap-go').debug_test()
+--       end,
+--       "Debug go test"
+--     },
+--     ["<leader>dgl"] = {
+--       function()
+--         require('dap-go').debug_last()
+--       end,
+--       "Debug go test"
+--     },
+--   },
+-- }
 
 return M
